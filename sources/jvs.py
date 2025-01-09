@@ -11,24 +11,21 @@ class JvavSprictInterpreter:
 
     def execute(self, code):
         """执行代码"""
-        print("running program...")  # 第一步：代码进入执行方法
+        # print("running program...")  # 第一步：代码进入执行方法
         lines = code.split("\n")
-        print(f"The code is divided into {len(lines)} lines")  # 第二步：代码分行后，打印行数
+        # print(f"The code is divided into {len(lines)} lines")  # 第二步：代码分行后，打印行数
 
         try:
             self.process_lines(lines)
 
             # 打印解析的函数信息
-            print(f"A list of resolved functions: {list(self.functions.keys())}")
+            # print(f"A list of resolved functions: {list(self.functions.keys())}")
 
             # 自动调用 main()
             if "main" in self.functions:
-                print("Locate the main function and start executing")
-                print("=================LOG=OUTPUT=================\n")
+                print("Locate the main function and start executing\n")
+                # print("=================LOG=OUTPUT=================\n")
                 self.call_function("main", [])
-            else:
-                print("The main function was not found and cannot be automated")
-
         except Exception as e:
             # 捕获任何错误并打印堆栈信息
             self.print_exception_trace(-1, "Exceptions to code execution", e)
@@ -173,7 +170,7 @@ if __name__ == "__main__":
             sys.exit(1)
 
         file_path = sys.argv[1]
-        print(f"compile file: {file_path}")
+        # print(f"compile file: {file_path}")
 
         if not os.path.exists(file_path):
             raise FileNotFoundError(f"file not found: {file_path}")
@@ -181,12 +178,12 @@ if __name__ == "__main__":
         with open(file_path, "r", encoding="utf-8") as file:
             program = file.read()
 
-        print("file read successful，start running...")
+        # print("file read successful，start running...")
         interpreter = JvavSprictInterpreter()
         interpreter.execute(program)
 
-        print("\n==================LOG=END==================")
-        print("Process finished.")
+        # print("\n==================LOG=END==================")
+        print("\nProcess finished.")
 
     except Exception as e:
         # 捕获异常并打印 Java 风格的错误堆栈

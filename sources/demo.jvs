@@ -1,0 +1,8 @@
+// This is just a example for how to use JvavSprict.
+func demoFunc() {
+    log("Hello, world!")
+}
+
+func main() {
+    demoFunc()
+}
